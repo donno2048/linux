@@ -30,7 +30,7 @@ class comm_filter:
 
 	def filter(self, pid, comm):
 		m = self.re.search(comm)
-		return m == None or m.group() == ""
+		return m is None or m.group() == ""
 
 class pid_filter:
 	def __init__(self, low, high):

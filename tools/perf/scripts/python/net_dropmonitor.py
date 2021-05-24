@@ -55,7 +55,7 @@ def print_drop_table():
 	print("%25s %25s %25s" % ("LOCATION", "OFFSET", "COUNT"))
 	for i in drop_log.keys():
 		(sym, off) = get_sym(i)
-		if sym == None:
+		if sym is None:
 			sym = i
 		print("%25s %25s %25s" % (sym, off, drop_log[i]))
 

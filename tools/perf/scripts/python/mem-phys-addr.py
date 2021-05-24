@@ -94,6 +94,6 @@ def process_event(param_dict):
 	phys_addr  = sample["phys_addr"]
 
 	global event_name
-	if event_name == None:
+	if event_name is None:
 		event_name = name
 	load_mem_type_cnt[find_memory_type(phys_addr)] += 1
