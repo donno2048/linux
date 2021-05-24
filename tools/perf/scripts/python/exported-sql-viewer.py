@@ -117,7 +117,7 @@ if not "--pyside-version-1" in sys.argv:
 		from PySide2.QtSql import *
 		from PySide2.QtWidgets import *
 		pyside_version_1 = False
-	except:
+	except ImportError:
 		pass
 
 if pyside_version_1:

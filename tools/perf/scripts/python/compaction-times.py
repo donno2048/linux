@@ -302,7 +302,7 @@ if argc >= 1:
 			else:
 				try:
 					comm_re=re.compile(opt)
-				except:
+				except re.error:
 					sys.stderr.write("invalid regex '%s'" % opt)
 					sys.exit(usage)
 				f = comm_filter(comm_re)

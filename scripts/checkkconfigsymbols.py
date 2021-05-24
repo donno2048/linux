@@ -107,7 +107,7 @@ def parse_options():
     if args.ignore:
         try:
             re.match(args.ignore, "this/is/just/a/test.c")
-        except:
+        except re.error:
             sys.exit("Please specify a valid Python regex.")
 
     return args
