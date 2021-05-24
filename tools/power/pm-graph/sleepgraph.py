@@ -64,6 +64,7 @@ import gzip
 from threading import Thread
 from subprocess import call, Popen, PIPE
 import base64
+import binascii
 
 def pprint(msg):
 	print(msg)
@@ -890,7 +891,7 @@ class SystemValues:
 				with gzip.open(filename, mode+'t') as fp:
 					test = fp.read(64)
 				isgz = True
-			except:
+			except OSError:
 				isgz = False
 		if isgz:
 			return gzip.open(filename, mode+'t')
@@ -906,7 +907,7 @@ class SystemValues:
 	def b64unzip(self, data):
 		try:
 			out = codecs.decode(base64.b64decode(data), 'zlib').decode()
-		except:
+		except (ValueError, UnicodeDecodeError, binascii.Error):
 			out = data
 		return out
 	def b64zip(self, data):
@@ -1130,7 +1131,7 @@ class SystemValues:
 	def wifiDetails(self, dev):
 		try:
 			info = open('/sys/class/net/%s/device/uevent' % dev, 'r').read().strip()
-		except:
+		except OSError:
 			return dev
 		vals = [dev]
 		for prop in info.split('\n'):
@@ -1140,7 +1141,7 @@ class SystemValues:
 	def checkWifi(self, dev=''):
 		try:
 			w = open('/proc/net/wireless', 'r').read().strip()
-		except:
+		except OSError:
 			return ''
 		for line in reversed(w.split('\n')):
 			m = re.match(' *(?P<dev>.*): (?P<stat>[0-9a-f]*) .*', w.split('\n')[-1])
