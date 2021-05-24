@@ -13,7 +13,6 @@ import sys
 import re
 import time
 import json
-import math
 
 import drgn
 from drgn import container_of
