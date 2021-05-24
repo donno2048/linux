@@ -70,8 +70,6 @@ def trace_begin():
 # do more analysis with simple database commands.
 #
 def process_event(param_dict):
-        event_attr = param_dict["attr"]
-        sample     = param_dict["sample"]
         raw_buf    = param_dict["raw_buf"]
         comm       = param_dict["comm"]
         name       = param_dict["ev_name"]

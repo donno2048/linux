@@ -1688,7 +1688,6 @@ class SwitchGraphGraphicsItem(QGraphicsItem):
 		self.graph_origin_x = margin + title_width + margin
 		self.graph_origin_y = graph_height + margin
 
-		x_axis_size = 1
 		y_axis_size = 1
 		self.yline = QGraphicsLineItem(0, 0, 0, graph_height, self)
 
