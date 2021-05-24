@@ -445,7 +445,7 @@ class FindBar():
 		index = self.textbox.currentIndex()
 		data = self.textbox.itemData(index)
 		# Store the pattern in the combo box to keep it with the text value
-		if data == None:
+		if data is None:
 			self.textbox.setItemData(index, pattern)
 		else:
 			self.pattern.setChecked(data)
