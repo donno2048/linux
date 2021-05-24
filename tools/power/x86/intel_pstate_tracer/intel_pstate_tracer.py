@@ -63,8 +63,6 @@ C_USEC = 3
 C_SEC = 2
 C_CPU = 1
 
-global sample_num, last_sec_cpu, last_usec_cpu, start_time, testname
-
 # 11 digits covers uptime to 115 days
 getcontext().prec = 11
 
